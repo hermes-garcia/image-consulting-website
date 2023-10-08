@@ -1,23 +1,26 @@
 import React from 'react';
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import './globals.css';
+import type { Metadata } from 'next';
+import localFont from 'next/font/local';
 
-const inter = Inter({ subsets: ['latin'] })
+const florentino = localFont({
+  src: '../fonts/florentino-regular.woff2',
+  variable: '--font-florentino',
+});
+const muse = localFont({
+  src: '../fonts/muse-regular.woff2',
+  variable: '--font-muse',
+});
 
 export const metadata: Metadata = {
-  title: 'Title',
-  description: 'Description',
-}
+  title: 'Aury Peregrino',
+  description: 'Consultoría de Imagen, Colorimetría y Personal Shopper',
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es-mx">
-      <body className={inter.className}>{children}</body>
+      <body className={`${florentino.variable} ${muse.variable} sans`}>{children}</body>
     </html>
-  )
+  );
 }
